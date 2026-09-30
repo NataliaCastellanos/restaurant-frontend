@@ -1,0 +1,227 @@
+.products-page {
+  min-width: 0;
+}
+
+.products-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.products-page-title {
+  color: var(--text-color);
+  font-size: 1.45rem;
+  font-weight: 700;
+}
+
+.products-button {
+  display: inline-flex;
+  min-height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.2;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease,
+    transform 160ms ease;
+}
+
+.products-button:hover {
+  transform: translateY(-1px);
+}
+
+.products-button-primary {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.products-button-primary:hover {
+  background: #244bd0;
+}
+
+.products-button-secondary {
+  border-color: var(--border-color);
+  background: var(--surface-color);
+  color: var(--text-color);
+}
+
+.products-button-secondary:hover {
+  background: var(--surface-alt);
+}
+
+.products-table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.products-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--text-color);
+  font-size: 0.925rem;
+  text-align: left;
+}
+
+.products-table th,
+.products-table td {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+}
+
+.products-table th {
+  background: #f7f9fc;
+  color: var(--muted-color);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.products-table tbody tr {
+  transition: background-color 140ms ease;
+}
+
+.products-table tbody tr:hover {
+  background: #f8faff;
+}
+
+.products-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.products-table td[colspan] {
+  padding: 2.5rem 1rem;
+  color: var(--muted-color);
+  text-align: center;
+}
+
+.products-row-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.products-button-edit {
+  background: var(--primary-soft);
+  color: #244bd0;
+}
+
+.products-button-edit:hover {
+  background: rgba(47, 93, 246, 0.2);
+}
+
+.products-button-delete {
+  background: #fff0ef;
+  color: #b93832;
+}
+
+.products-button-delete:hover {
+  background: #ffe1de;
+}
+
+.products-modal-backdrop {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow-y: auto;
+  padding: 1.25rem;
+  background: rgba(20, 29, 43, 0.48);
+  animation: products-backdrop-in 160ms ease-out;
+}
+
+.products-modal {
+  width: min(100%, 34rem);
+  max-height: min(100%, 46rem);
+  overflow-y: auto;
+  border: 1px solid rgba(223, 230, 238, 0.9);
+  border-radius: 10px;
+  background: var(--surface-color);
+  box-shadow: 0 24px 64px rgba(15, 23, 42, 0.24);
+  animation: products-modal-in 180ms ease-out;
+}
+
+.products-modal-header {
+  padding: 1.4rem 1.6rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.products-modal-header h3 {
+  color: var(--text-color);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.products-form {
+  display: grid;
+  gap: 1.15rem;
+  padding: 1.6rem;
+}
+
+.products-form-field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.products-form-field label {
+  color: #344256;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.products-form-field input {
+  min-height: 2.75rem;
+  border-color: #cfd8e4;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.products-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.65rem;
+  margin-top: 0.4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+@keyframes products-backdrop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes products-modal-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  .products-page-header {
+    align-items: flex-start;
+  }
+
+  .products-table {
+    min-width: 38rem;
+  }
+
+  .products-modal-header,
+  .products-form {
+    padding: 1.15rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .products-button,
+  .products-table tbody tr,
+  .products-modal-backdrop,
+  .products-modal {
+    animation: none;
+    transition: none;
+  }
+}
